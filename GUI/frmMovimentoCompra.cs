@@ -309,12 +309,14 @@ namespace GUI
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCompra bll = new BLLCompra(cx);
-                if (this.operacao == "inserir")
+                if (this.operacao == "inserir")//cadastrar compra
                 {
                     bll.Incluir(modelo);
+                    //itens da compra
+
                     MessageBox.Show("Compra efetuada.\n Código: " + modelo.ComCod.ToString());
                 }
-                else
+                else//alterar compra
                 {
 
                 }
