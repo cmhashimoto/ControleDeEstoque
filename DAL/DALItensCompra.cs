@@ -17,12 +17,11 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "insert into itenscompra (itc_cod, itc_qtde, itc_valor, com_cod, pro_cod) " +
-                                               "values (@itccod, @itcqtde, @itcvalor, @comcod, @procod);";
+            cmd.CommandText = "insert into itenscompra (itc_cod, itc_qtde, itc_valor, com_cod, pro_cod) values (@itccod, @itcqtde, @itcvalor, @comcod, @procod);";
             cmd.Parameters.AddWithValue("@itccod", modelo.ItcCod);
             cmd.Parameters.AddWithValue("@itcqtde", modelo.ItcQtde);
             cmd.Parameters.AddWithValue("@itcvalor", modelo.ItcValor);
-            cmd.Parameters.AddWithValue("comcod", modelo.ComCod);
+            cmd.Parameters.AddWithValue("@comcod", modelo.ComCod);
             cmd.Parameters.AddWithValue("@procod", modelo.ProCod);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -39,7 +38,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@itccod", modelo.ItcCod);
             cmd.Parameters.AddWithValue("@itcqtde", modelo.ItcQtde);
             cmd.Parameters.AddWithValue("@itcvalor", modelo.ItcValor);
-            cmd.Parameters.AddWithValue("comcod", modelo.ComCod);
+            cmd.Parameters.AddWithValue("@comcod", modelo.ComCod);
             cmd.Parameters.AddWithValue("@procod", modelo.ProCod);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -52,7 +51,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "delete from itenscompra where itccod = @itccod and com_cod = @comcod and pro_cod = @procod;";
             cmd.Parameters.AddWithValue("@itccod", modelo.ItcCod);
-            cmd.Parameters.AddWithValue("comcod", modelo.ComCod);
+            cmd.Parameters.AddWithValue("@comcod", modelo.ComCod);
             cmd.Parameters.AddWithValue("@procod", modelo.ProCod);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -74,7 +73,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "select * from itenscompra where itccod = @itccod and com_cod = @comcod and pro_cod = @procod;";
             cmd.Parameters.AddWithValue("@itccod", Itccod);
-            cmd.Parameters.AddWithValue("comcod", ComCod);
+            cmd.Parameters.AddWithValue("@comcod", ComCod);
             cmd.Parameters.AddWithValue("@procod", ProCod);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();

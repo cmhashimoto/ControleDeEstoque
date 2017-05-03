@@ -156,7 +156,7 @@ namespace GUI
             DateTime dt = new DateTime();
             dt = dtpDataInicial.Value;
             double totalParcelado = valorParcela * parcelas;
-            lblTotal.Text = totalParcelado.ToString("N2");
+            lblTotal.Text = totalParcelado.ToString();
 
             for (int i = 1; i <= parcelas; i++)//definição do mês de pagto da parcela
             {
@@ -172,6 +172,8 @@ namespace GUI
                 }
             }
             pnlFinalizaCompra.Visible = true;
+            this.btnCancelar.Enabled = false;
+            this.btnSalvar.Enabled = false;
         }
 
         private void btnLocFornecedor_Click(object sender, EventArgs e)
@@ -187,7 +189,7 @@ namespace GUI
             }
         }
 
-        private void txtForCod_Leave(object sender, EventArgs e)
+        private void txtForCod_Leave(object sender, EventArgs e)//qdo sair do campo verifica se codigo do fornecedor esta correto.
         {
             try
             {
@@ -209,7 +211,7 @@ namespace GUI
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             //comboBox
             BLLTipoDePagamento bll = new BLLTipoDePagamento(cx);
-            cbTipoPagto.DataSource = bll.Localizar("");
+            cbTipoPagto.DataSource = bll.Localizar("");//combobox
             cbTipoPagto.DisplayMember = "tpa_nome";
             cbTipoPagto.ValueMember = "tpa_cod";
             cbNParcelas.SelectedIndex = 0;
@@ -221,7 +223,7 @@ namespace GUI
             {
                 Double totalLocal = Convert.ToDouble(txtQtde.Text) * Convert.ToDouble(txtValor.Text);
                 this.totalCompra = this.totalCompra + totalLocal;
-                String[] i = new String[] { txtProCod.Text, lblProduto.Text, txtQtde.Text, txtValor.Text, totalLocal.ToString("N2") };//definindo o que inserir no dgv através de vetor
+                String[] i = new String[] { txtProCod.Text, lblProduto.Text, txtQtde.Text, txtValor.Text, totalLocal.ToString() };//definindo o que inserir no dgv através de vetor
                 this.dgvItens.Rows.Add(i);//inserindo no dgv
 
                 //limpar campos após inserir
@@ -231,7 +233,7 @@ namespace GUI
                 lblProduto.Text = "Informe o Código do Produto ou Clique em Localizar...";
                 txtQtde.Clear();
                 txtValor.Clear();
-                txtTotalCompra.Text = this.totalCompra.ToString("N2");
+                txtTotalCompra.Text = this.totalCompra.ToString();
             }
         }
 
@@ -258,7 +260,7 @@ namespace GUI
                 lblProduto.Text = modelo.ProNome;//todas as linhas pra receber o nome do fornecedor
 
                 txtQtde.Text = "1";
-                txtValor.Text = modelo.ProValorPago.ToString("N2");
+                txtValor.Text = modelo.ProValorVenda.ToString();
             }
             catch
             {
@@ -269,7 +271,7 @@ namespace GUI
 
 
 
-        private void dgvItens_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvItens_CellDoubleClick(object sender, DataGridViewCellEventArgs e)//para editar novamente a compra
         {
             if (e.RowIndex >= 0)
             {
@@ -281,7 +283,7 @@ namespace GUI
                 double valor = Convert.ToDouble(dgvItens.Rows[e.RowIndex].Cells[4].Value);
                 this.totalCompra = this.totalCompra - valor;
                 dgvItens.Rows.RemoveAt(e.RowIndex);
-                txtTotalCompra.Text = this.totalCompra.ToString("N2");
+                txtTotalCompra.Text = this.totalCompra.ToString();
             }
         }
 
@@ -298,6 +300,7 @@ namespace GUI
         {
             try
             {
+                //leitura dos dados
                 ModeloCompra modelo = new ModeloCompra();
                 modelo.ComData = dtpDataCompra.Value;
                 modelo.ComNFiscal = Convert.ToInt32(txtNFiscal.Text);
@@ -309,12 +312,26 @@ namespace GUI
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCompra bll = new BLLCompra(cx);
+
+                ModeloItensCompra mitens = new ModeloItensCompra();
+                BLLItensCompra bitens = new BLLItensCompra(cx);
+
                 if (this.operacao == "inserir")//cadastrar compra
                 {
                     bll.Incluir(modelo);
-                    //itens da compra
+                    //itens da compra e parcelas
+                    for (int i = 0; i < dgvItens.RowCount; i++)
+                    {
+                        mitens.ItcCod = i + 1;//pra que o 1o item receba 1
+                        mitens.ComCod = modelo.ComCod;
+                        mitens.ProCod = Convert.ToInt32(dgvItens.Rows[i].Cells[0].Value);
+                        mitens.ItcQtde = Convert.ToInt32(dgvItens.Rows[i].Cells[2].Value);
+                        mitens.ItcValor = Convert.ToDouble(dgvItens.Rows[i].Cells[3].Value);
+                        bitens.Incluir(mitens);
+                    }
+                    btnSalvarParcelas.Enabled = false;
+                    MessageBox.Show("Compra efetuada.\n Código: " + modelo.ComCod.ToString()+"\n NF: "+modelo.ComNFiscal);
 
-                    MessageBox.Show("Compra efetuada.\n Código: " + modelo.ComCod.ToString());
                 }
                 else//alterar compra
                 {
@@ -332,6 +349,8 @@ namespace GUI
         private void btnCancelarParcelas_Click(object sender, EventArgs e)
         {
             pnlFinalizaCompra.Visible = false;
+            btnSalvar.Enabled = true;
+            btnCancelar.Enabled = true;
         }
     }
 }

@@ -30,10 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMovimentoCompra));
             this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLocalizar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.pnlDados = new System.Windows.Forms.Panel();
+            this.pnlFinalizaCompra = new System.Windows.Forms.Panel();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnSalvarParcelas = new System.Windows.Forms.Button();
+            this.btnCancelarParcelas = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dgvParcelas = new System.Windows.Forms.DataGridView();
+            this.pco_cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pco_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pco_datavecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.btnSub = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.txtQtde = new System.Windows.Forms.TextBox();
@@ -68,31 +88,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlFinalizaCompra = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dgvParcelas = new System.Windows.Forms.DataGridView();
-            this.pco_cod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pco_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pco_datavecto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnLocalizar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnInserir = new System.Windows.Forms.Button();
-            this.btnSalvarParcelas = new System.Windows.Forms.Button();
-            this.btnCancelarParcelas = new System.Windows.Forms.Button();
-            this.btnSub = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.pnlBotoes.SuspendLayout();
             this.pnlDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.pnlFinalizaCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBotoes
@@ -107,6 +107,90 @@
             this.pnlBotoes.Name = "pnlBotoes";
             this.pnlBotoes.Size = new System.Drawing.Size(760, 106);
             this.pnlBotoes.TabIndex = 3;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
+            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSalvar.Location = new System.Drawing.Point(540, 16);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(81, 81);
+            this.btnSalvar.TabIndex = 5;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
+            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExcluir.Location = new System.Drawing.Point(411, 16);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(81, 81);
+            this.btnExcluir.TabIndex = 4;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(669, 16);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(81, 81);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalizar.Image")));
+            this.btnLocalizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnLocalizar.Location = new System.Drawing.Point(153, 16);
+            this.btnLocalizar.Name = "btnLocalizar";
+            this.btnLocalizar.Size = new System.Drawing.Size(81, 81);
+            this.btnLocalizar.TabIndex = 2;
+            this.btnLocalizar.Text = "Localizar";
+            this.btnLocalizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLocalizar.UseVisualStyleBackColor = true;
+            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAlterar.Location = new System.Drawing.Point(282, 16);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(81, 81);
+            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnInserir
+            // 
+            this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
+            this.btnInserir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnInserir.Location = new System.Drawing.Point(24, 16);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(81, 81);
+            this.btnInserir.TabIndex = 0;
+            this.btnInserir.Text = "Incluir";
+            this.btnInserir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // pnlDados
             // 
@@ -151,6 +235,137 @@
             this.pnlDados.Size = new System.Drawing.Size(760, 442);
             this.pnlDados.TabIndex = 2;
             // 
+            // pnlFinalizaCompra
+            // 
+            this.pnlFinalizaCompra.Controls.Add(this.lblTotal);
+            this.pnlFinalizaCompra.Controls.Add(this.label20);
+            this.pnlFinalizaCompra.Controls.Add(this.btnSalvarParcelas);
+            this.pnlFinalizaCompra.Controls.Add(this.btnCancelarParcelas);
+            this.pnlFinalizaCompra.Controls.Add(this.label18);
+            this.pnlFinalizaCompra.Controls.Add(this.label19);
+            this.pnlFinalizaCompra.Controls.Add(this.label17);
+            this.pnlFinalizaCompra.Controls.Add(this.dgvParcelas);
+            this.pnlFinalizaCompra.Location = new System.Drawing.Point(0, 0);
+            this.pnlFinalizaCompra.Name = "pnlFinalizaCompra";
+            this.pnlFinalizaCompra.Size = new System.Drawing.Size(760, 554);
+            this.pnlFinalizaCompra.TabIndex = 4;
+            this.pnlFinalizaCompra.Visible = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblTotal.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTotal.Location = new System.Drawing.Point(489, 396);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(15, 14);
+            this.lblTotal.TabIndex = 23;
+            this.lblTotal.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label20.Location = new System.Drawing.Point(354, 396);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(129, 14);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "Total da Compra R$";
+            // 
+            // btnSalvarParcelas
+            // 
+            this.btnSalvarParcelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarParcelas.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvarParcelas.Image")));
+            this.btnSalvarParcelas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSalvarParcelas.Location = new System.Drawing.Point(610, 104);
+            this.btnSalvarParcelas.Name = "btnSalvarParcelas";
+            this.btnSalvarParcelas.Size = new System.Drawing.Size(81, 81);
+            this.btnSalvarParcelas.TabIndex = 22;
+            this.btnSalvarParcelas.Text = "Salvar";
+            this.btnSalvarParcelas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalvarParcelas.UseVisualStyleBackColor = true;
+            this.btnSalvarParcelas.Click += new System.EventHandler(this.btnSalvarParcelas_Click);
+            // 
+            // btnCancelarParcelas
+            // 
+            this.btnCancelarParcelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarParcelas.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarParcelas.Image")));
+            this.btnCancelarParcelas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelarParcelas.Location = new System.Drawing.Point(610, 257);
+            this.btnCancelarParcelas.Name = "btnCancelarParcelas";
+            this.btnCancelarParcelas.Size = new System.Drawing.Size(81, 81);
+            this.btnCancelarParcelas.TabIndex = 21;
+            this.btnCancelarParcelas.Text = "Voltar";
+            this.btnCancelarParcelas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelarParcelas.UseVisualStyleBackColor = true;
+            this.btnCancelarParcelas.Click += new System.EventHandler(this.btnCancelarParcelas_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label18.Location = new System.Drawing.Point(3, 32);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(749, 13);
+            this.label18.TabIndex = 20;
+            this.label18.Text = "_________________________________________________________________________________" +
+    "_________________________\r\n";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label19.Location = new System.Drawing.Point(3, 51);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(120, 13);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Parcelas da Compra";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.Location = new System.Drawing.Point(3, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(128, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Dados do Pagamento";
+            // 
+            // dgvParcelas
+            // 
+            this.dgvParcelas.AllowUserToAddRows = false;
+            this.dgvParcelas.AllowUserToDeleteRows = false;
+            this.dgvParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pco_cod,
+            this.pco_valor,
+            this.pco_datavecto});
+            this.dgvParcelas.Location = new System.Drawing.Point(3, 67);
+            this.dgvParcelas.Name = "dgvParcelas";
+            this.dgvParcelas.ReadOnly = true;
+            this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvParcelas.Size = new System.Drawing.Size(601, 325);
+            this.dgvParcelas.TabIndex = 0;
+            // 
+            // pco_cod
+            // 
+            this.pco_cod.HeaderText = "Parcela";
+            this.pco_cod.Name = "pco_cod";
+            this.pco_cod.ReadOnly = true;
+            // 
+            // pco_valor
+            // 
+            this.pco_valor.HeaderText = "Valor da Parcela";
+            this.pco_valor.Name = "pco_valor";
+            this.pco_valor.ReadOnly = true;
+            // 
+            // pco_datavecto
+            // 
+            this.pco_datavecto.HeaderText = "Data do Vencimento";
+            this.pco_datavecto.Name = "pco_datavecto";
+            this.pco_datavecto.ReadOnly = true;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -169,6 +384,17 @@
             this.label15.TabIndex = 35;
             this.label15.Text = "R$";
             // 
+            // btnSub
+            // 
+            this.btnSub.Enabled = false;
+            this.btnSub.Image = global::GUI.Properties.Resources.shoppingCart___Copy;
+            this.btnSub.Location = new System.Drawing.Point(697, 114);
+            this.btnSub.Name = "btnSub";
+            this.btnSub.Size = new System.Drawing.Size(53, 36);
+            this.btnSub.TabIndex = 34;
+            this.btnSub.UseVisualStyleBackColor = true;
+            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -178,6 +404,16 @@
             this.label11.Size = new System.Drawing.Size(271, 13);
             this.label11.TabIndex = 30;
             this.label11.Text = "Duplo clique na linha do Produto para Editar...";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::GUI.Properties.Resources.shoppingCart1;
+            this.btnAdd.Location = new System.Drawing.Point(697, 156);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(53, 36);
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label14
             // 
@@ -488,242 +724,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "コード";
             // 
-            // pnlFinalizaCompra
-            // 
-            this.pnlFinalizaCompra.Controls.Add(this.lblTotal);
-            this.pnlFinalizaCompra.Controls.Add(this.label20);
-            this.pnlFinalizaCompra.Controls.Add(this.btnSalvarParcelas);
-            this.pnlFinalizaCompra.Controls.Add(this.btnCancelarParcelas);
-            this.pnlFinalizaCompra.Controls.Add(this.label18);
-            this.pnlFinalizaCompra.Controls.Add(this.label19);
-            this.pnlFinalizaCompra.Controls.Add(this.label17);
-            this.pnlFinalizaCompra.Controls.Add(this.dgvParcelas);
-            this.pnlFinalizaCompra.Location = new System.Drawing.Point(0, 0);
-            this.pnlFinalizaCompra.Name = "pnlFinalizaCompra";
-            this.pnlFinalizaCompra.Size = new System.Drawing.Size(760, 554);
-            this.pnlFinalizaCompra.TabIndex = 4;
-            this.pnlFinalizaCompra.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label20.Location = new System.Drawing.Point(354, 396);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(129, 14);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "Total da Compra R$";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label18.Location = new System.Drawing.Point(3, 32);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(749, 13);
-            this.label18.TabIndex = 20;
-            this.label18.Text = "_________________________________________________________________________________" +
-    "_________________________\r\n";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.Location = new System.Drawing.Point(3, 51);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(120, 13);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Parcelas da Compra";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.Location = new System.Drawing.Point(3, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(128, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Dados do Pagamento";
-            // 
-            // dgvParcelas
-            // 
-            this.dgvParcelas.AllowUserToAddRows = false;
-            this.dgvParcelas.AllowUserToDeleteRows = false;
-            this.dgvParcelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParcelas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pco_cod,
-            this.pco_valor,
-            this.pco_datavecto});
-            this.dgvParcelas.Location = new System.Drawing.Point(3, 67);
-            this.dgvParcelas.Name = "dgvParcelas";
-            this.dgvParcelas.ReadOnly = true;
-            this.dgvParcelas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParcelas.Size = new System.Drawing.Size(601, 325);
-            this.dgvParcelas.TabIndex = 0;
-            // 
-            // pco_cod
-            // 
-            this.pco_cod.HeaderText = "Parcela";
-            this.pco_cod.Name = "pco_cod";
-            this.pco_cod.ReadOnly = true;
-            // 
-            // pco_valor
-            // 
-            this.pco_valor.HeaderText = "Valor da Parcela";
-            this.pco_valor.Name = "pco_valor";
-            this.pco_valor.ReadOnly = true;
-            // 
-            // pco_datavecto
-            // 
-            this.pco_datavecto.HeaderText = "Data do Vencimento";
-            this.pco_datavecto.Name = "pco_datavecto";
-            this.pco_datavecto.ReadOnly = true;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTotal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblTotal.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblTotal.Location = new System.Drawing.Point(489, 396);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(15, 14);
-            this.lblTotal.TabIndex = 23;
-            this.lblTotal.Text = "0";
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvar.Image")));
-            this.btnSalvar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalvar.Location = new System.Drawing.Point(540, 16);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(81, 81);
-            this.btnSalvar.TabIndex = 5;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExcluir.Location = new System.Drawing.Point(411, 16);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(81, 81);
-            this.btnExcluir.TabIndex = 4;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(669, 16);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(81, 81);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnLocalizar
-            // 
-            this.btnLocalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLocalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalizar.Image")));
-            this.btnLocalizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLocalizar.Location = new System.Drawing.Point(153, 16);
-            this.btnLocalizar.Name = "btnLocalizar";
-            this.btnLocalizar.Size = new System.Drawing.Size(81, 81);
-            this.btnLocalizar.TabIndex = 2;
-            this.btnLocalizar.Text = "Localizar";
-            this.btnLocalizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLocalizar.UseVisualStyleBackColor = true;
-            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAlterar.Location = new System.Drawing.Point(282, 16);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(81, 81);
-            this.btnAlterar.TabIndex = 1;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
-            this.btnInserir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInserir.Location = new System.Drawing.Point(24, 16);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(81, 81);
-            this.btnInserir.TabIndex = 0;
-            this.btnInserir.Text = "Incluir";
-            this.btnInserir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInserir.UseVisualStyleBackColor = true;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // btnSalvarParcelas
-            // 
-            this.btnSalvarParcelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarParcelas.Image = ((System.Drawing.Image)(resources.GetObject("btnSalvarParcelas.Image")));
-            this.btnSalvarParcelas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSalvarParcelas.Location = new System.Drawing.Point(610, 104);
-            this.btnSalvarParcelas.Name = "btnSalvarParcelas";
-            this.btnSalvarParcelas.Size = new System.Drawing.Size(81, 81);
-            this.btnSalvarParcelas.TabIndex = 22;
-            this.btnSalvarParcelas.Text = "Salvar";
-            this.btnSalvarParcelas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSalvarParcelas.UseVisualStyleBackColor = true;
-            this.btnSalvarParcelas.Click += new System.EventHandler(this.btnSalvarParcelas_Click);
-            // 
-            // btnCancelarParcelas
-            // 
-            this.btnCancelarParcelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarParcelas.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarParcelas.Image")));
-            this.btnCancelarParcelas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelarParcelas.Location = new System.Drawing.Point(610, 257);
-            this.btnCancelarParcelas.Name = "btnCancelarParcelas";
-            this.btnCancelarParcelas.Size = new System.Drawing.Size(81, 81);
-            this.btnCancelarParcelas.TabIndex = 21;
-            this.btnCancelarParcelas.Text = "Cancelar";
-            this.btnCancelarParcelas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelarParcelas.UseVisualStyleBackColor = true;
-            this.btnCancelarParcelas.Click += new System.EventHandler(this.btnCancelarParcelas_Click);
-            // 
-            // btnSub
-            // 
-            this.btnSub.Enabled = false;
-            this.btnSub.Image = global::GUI.Properties.Resources.shoppingCart___Copy;
-            this.btnSub.Location = new System.Drawing.Point(697, 114);
-            this.btnSub.Name = "btnSub";
-            this.btnSub.Size = new System.Drawing.Size(53, 36);
-            this.btnSub.TabIndex = 34;
-            this.btnSub.UseVisualStyleBackColor = true;
-            this.btnSub.Click += new System.EventHandler(this.btnSub_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::GUI.Properties.Resources.shoppingCart1;
-            this.btnAdd.Location = new System.Drawing.Point(697, 156);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(53, 36);
-            this.btnAdd.TabIndex = 29;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // frmMovimentoCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,10 +742,10 @@
             this.pnlBotoes.ResumeLayout(false);
             this.pnlDados.ResumeLayout(false);
             this.pnlDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             this.pnlFinalizaCompra.ResumeLayout(false);
             this.pnlFinalizaCompra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParcelas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             this.ResumeLayout(false);
 
         }

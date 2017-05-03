@@ -275,8 +275,8 @@ namespace GUI
                 txtDescricao.Text = modelo.ProDescricao;
                 txtNome.Text = modelo.ProNome;
                 txtQtde.Text = modelo.ProQtde.ToString();
-                txtValorPago.Text = modelo.ProValorPago.ToString("N2");//txtValorPago = modelo.ProValorPago.ToString("N2"); 2 casas  apos , 
-                txtValorVenda.Text = modelo.ProValorVenda.ToString("N2");
+                txtValorPago.Text = modelo.ProValorPago.ToString();//txtValorPago = modelo.ProValorPago.ToString("N2"); 2 casas  apos , 
+                txtValorVenda.Text = modelo.ProValorVenda.ToString();
                 cboxCategoria.SelectedValue = modelo.CatCod;
                 cboxSCategoria.SelectedValue = modelo.ScatCod;
                 cboxUMedida.SelectedValue = modelo.UmedCod;
